@@ -19,18 +19,16 @@ if((isset($_SESSION['zalogowany']))&&($_SESSION['zalogowany']==true)){
     </form>
     <span style="color: red;">
             <?php
-            if (isset($_GET['blad'])) 
-            {
-                $blad = $_GET['blad'];
-                if ($blad=="pil") {
-                    echo "Przekroczono ilosc nieudanych logowania. Sprobuj ponownie za 10 minut.";
-                    goto blad_wykryty;
-                } else if ($blad=="nl") {
-                    echo "Logowanie nieudane. Prosze sprobowac ponownie.";
-                    goto blad_wykryty;
-                }
-                blad_wykryty:
+            $fullurl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            if(strpos($fullurl,"blad=pil")==true){
+                echo "Przekroczono limit logowan.Sprobuj ponownie za 10 minut";
+                goto wykryto_blad;
             }
+            elseif(strpos($fullurl,"blad=nl")==true){
+                echo "NIeudane logowanie. Prosze sprobowac ponownie.";
+                goto wykryto_blad;
+            }
+            wykryto_blad:
             ?>
         </span>
     <a href="formularz_problemy.php">Zglos nam swoj problem</a>
