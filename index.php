@@ -22,10 +22,10 @@ if((isset($_SESSION['zalogowany']))&&($_SESSION['zalogowany']==true)){
             if (isset($_GET['blad'])) 
             {
                 $blad = $_GET['blad'];
-                if ($blad="pil") {
+                if ($blad=="pil") {
                     echo "Przekroczono ilosc nieudanych logowania. Sprobuj ponownie za 10 minut.";
                     goto blad_wykryty;
-                } else if ($blad="nl") {
+                } else if ($blad=="nl") {
                     echo "Logowanie nieudane. Prosze sprobowac ponownie.";
                     goto blad_wykryty;
                 }
