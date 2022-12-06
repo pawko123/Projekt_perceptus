@@ -19,7 +19,7 @@ if((isset($_SESSION['zalogowany']))&&($_SESSION['zalogowany']==true)){
     </form>
     <span style="color: red;">
             <?php
-            $fullurl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            $fullurl = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             if(strpos($fullurl,"blad=pil")==true){
                 echo "Przekroczono limit logowan.Sprobuj ponownie za 10 minut";
                 goto wykryto_blad;
