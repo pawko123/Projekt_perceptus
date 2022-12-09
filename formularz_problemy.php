@@ -6,12 +6,20 @@
     <title>Template</title>
 </head>
 <body>
-<form action="./skrypty/mail_zgloszenie_problemu.php" method="post">
+<form action="./skrypty/wysylaniezgloszenia.php" method="post">
         Imie:<input type="text" name="imie"><br>
-        Nazwisko:<input type="password" name="nazwisko"><br>
-        Email:<input type="password" name="email"><br>
-        Wiadomość zgłoszenia:<input type="password" name="wiadomosc"><br>
-        <input type="submit" value="Wyslij zgloszenie">
+        Nazwisko:<input type="text" name="nazwisko"><br>
+        Email:<input type="text" name="email"><br>
+        <textarea name="wiadomosc" placeholder="Tresc wiadomosci"></textarea><br>
+        <input type="submit" name="zglos" value="Wyslij zgloszenie">
     </form>
+    <span style="color: red;">
+    <?php
+            $fullurl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            if(strpos($fullurl,"blad=nf")==true){
+                echo "Prosimy wypelnic wszystkie pola formularza";
+            }
+        ?>
+    </span>
 </body>
 </html>
