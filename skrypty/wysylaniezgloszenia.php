@@ -27,7 +27,7 @@ else{
             $from = 'Email od:'.$email;
             $subject = 'Zgloszenie problemu od: ' . $imie . ' ' . $nazwisko . '.';
             $headers = 'Content-Type: text/html; charset=utf-8'."\r\n";
-            $headers .= 'From: '.$email."\r\n";
+            $headers .= "".$from."\r\n";
 
 
             mail($mailto, $subject,$wiadomosc,$headers);
