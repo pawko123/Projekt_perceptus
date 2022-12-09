@@ -1,14 +1,20 @@
 <?php
+session_start();
 if(!isset($_POST['zglos'])){
     header("Location:../formularz_problemy.php");
 }
 else{
-    if(isset($_POST['antyspam'])){
+    if(!empty($_POST['antyspam'])){
     header("Location:../formularz_problemy.php");
     } 
     else {
         if(empty($_POST['imie'])||empty($_POST['nazwisko'])||empty($_POST['email'])||empty($_POST['wiadomosc'])){
+            $_SESSION['imie'] = $_POST['imie'];
+            $_SESSION['nazwisko']  = $_POST['nazwisko'];
+            $_SESSION['email']  = $_POST['email'];
+            $_SESSION['wiadomosc']  = $_POST['wiadomosc'];
             header("Location:../formularz_problemy.php?blad=nf"); 
+
         }
         else{
             $imie = $_POST['imie'];
